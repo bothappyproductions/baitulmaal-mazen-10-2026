@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mazen Mokhtar, Irving · Happy Productions</title>
+<meta name="robots" content="noindex">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single dark screening-room scroll. Full-bleed stills, a contact-sheet grid of the six scripts, a before/after grade slider, then April vs October side by side. */
+:root{
+  --ink:#14110d; --panel:#1d1914; --line:#3a3229; --fg:#efe7dc; --muted:#a99c8b; --gold:#f2b705;
+  --display:"Bodoni Moda", "Didot", Georgia, serif;
+  --body:"Figtree", system-ui, -apple-system, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme:dark;
+}
+body{background:var(--ink);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+img{display:block;width:100%;height:auto}
+h1,h2,h3{font-family:var(--display);font-weight:500;text-wrap:balance;margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.muted{color:var(--muted)}
+p{margin:0;max-width:62ch}
+
+.hero{position:relative}
+.hero img{aspect-ratio:21/9;object-fit:cover;object-position:50% 38%;max-height:78vh}
+.hero .cap{padding-block:28px 8px;display:grid;gap:14px}
+.hero h1{font-size:clamp(40px,7vw,92px);line-height:.98;letter-spacing:-.01em}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero .lede{font-size:clamp(17px,1.6vw,20px);color:var(--fg)}
+
+.slate{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-block:36px 64px}
+.slate div{background:var(--ink);padding:18px 16px;display:grid;gap:4px}
+.slate b{font-family:var(--display);font-size:44px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+.slate span{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+section{padding-block:56px;border-top:1px solid var(--line);display:grid;gap:28px}
+.sh{display:grid;gap:10px}
+.sh h2{font-size:clamp(30px,4vw,48px);line-height:1.05}
+
+.scripts{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px 22px}
+.card{display:grid;gap:12px;min-width:0}
+.card .meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.card h3{font-size:26px}
+.card p{font-size:15px;color:var(--muted)}
+.tag{color:var(--gold)}
+
+.seq{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.seq figure{margin:0;display:grid;gap:6px;min-width:0}
+.seq figcaption{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.seq img{aspect-ratio:16/9;object-fit:cover}
+@media (max-width:820px){.seq{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:480px){.seq{grid-template-columns:repeat(2,1fr)}}
+
+.wide{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:start}
+.wide > *{min-width:0}
+@media (max-width:820px){.wide{grid-template-columns:1fr}}
+
+.film{display:block;width:100%;max-width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--line)}
+.compare{position:relative;overflow:hidden;user-select:none;touch-action:pan-y;max-width:100%;aspect-ratio:16/9;background:var(--panel)}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.compare .top{clip-path:inset(0 0 0 var(--x,50%))}
+.compare .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:var(--gold);transform:translateX(-1px)}
+.compare .lab{position:absolute;top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:rgba(20,17,13,.72);padding:5px 8px}
+.compare .l{left:12px}.compare .r{right:12px;color:var(--gold)}
+.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.compare input:focus-visible + .bar{box-shadow:0 0 0 3px var(--fg)}
+
+.then{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.then > div{display:grid;gap:12px;min-width:0}
+.then .pair{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.then .pair img{aspect-ratio:16/9;object-fit:cover}
+.then .grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.then .grid6 img{aspect-ratio:16/9;object-fit:cover}
+@media (max-width:820px){.then{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td:first-child{color:var(--muted)}
+td.now{color:var(--fg)}
+.tbl{overflow-x:auto}
+
+.list{display:grid;gap:14px;padding:0;margin:0;list-style:none}
+.list li{display:grid;grid-template-columns:28px 1fr;gap:10px;max-width:70ch}
+.list li::before{content:"";width:14px;height:2px;background:var(--gold);margin-top:12px}
+
+footer{padding-block:40px 64px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--muted);display:grid;gap:6px}
+</style>
+</head>
+<body>
+<div class="hero">
+  <img src="img/hero_fountain.jpg" alt="Mazen Mokhtar delivering the end-of-year message to camera beside the fountain outside the Baitulmaal office">
+  <div class="wrap cap">
+    <div class="eyebrow">Baitulmaal × Happy Productions · Irving, Texas · Monday 19 October 2026</div>
+    <h1>Six scripts. Six looks.<br><em>One day with Mazen.</em></h1>
+    <p class="lede">Mazen Mokhtar recorded every appeal Baitulmaal sent us, each in its own wardrobe and setting, plus a walk-and-talk, an outdoor version of the end-of-year message and an arrival sequence the editors can open on.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="slate" role="list">
+    <div role="listitem"><b>6</b><span>scripts recorded</span></div>
+    <div role="listitem"><b>6</b><span>wardrobe changes</span></div>
+    <div role="listitem"><b>3</b><span>setups · 2 rooms + fountain</span></div>
+    <div role="listitem"><b>17</b><span>takes</span></div>
+    <div role="listitem"><b>37</b><span>minutes of 4K footage</span></div>
+    <div role="listitem"><b>6</b><span>B-roll shots, door to logo wall</span></div>
+  </div>
+
+  <section aria-labelledby="s0">
+    <div class="sh">
+      <div class="eyebrow">First cut · End of Year appeal · 61 seconds</div>
+      <h2 id="s0">The first video from the day is already cut</h2>
+      <p class="muted">Mazen's End of Year message from Room 1, intercut with drone footage from the Kenya food distribution we filmed in February, so donors see the work he is thanking them for.</p>
+    </div>
+    <video class="film" controls playsinline preload="metadata" poster="img/eoy_poster.jpg">
+      <source src="endofyear_v3.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <section aria-labelledby="s1">
+    <div class="sh">
+      <div class="eyebrow">What was captured</div>
+      <h2 id="s1">Every appeal has its own look</h2>
+      <p class="muted">Six videos from one office can easily look like the same video six times. We gave each script its own outfit and setup, so they can run in the same feed during Ramadan and the end-of-year push without blurring together.</p>
+    </div>
+    <div class="scripts">
+      <article class="card"><img src="img/a_orphans.jpg" alt="Mazen in a navy quarter-zip in front of the bookshelf"><div class="meta"><span class="tag">Room 1</span><span>Navy quarter-zip</span><span>3 takes</span></div><h3>Gaza Orphan Sponsorship</h3><p>"Children should never have to understand the cruelty of the world before they've had the chance to experience its kindness."</p></article>
+      <article class="card"><img src="img/a_zakat.jpg" alt="Mazen in a grey suit in front of the bookshelf"><div class="meta"><span class="tag">Room 1</span><span>Grey suit</span><span>3 takes</span></div><h3>Zakat</h3><p>"Imagine if every Muslim fulfilled their Zakat this year. What would our world look like today?"</p></article>
+      <article class="card"><img src="img/a_endofyear.jpg" alt="Mazen in a navy suit gesturing to camera"><div class="meta"><span class="tag">Room 1 + fountain</span><span>Navy suit · brown jacket outside</span><span>4 takes</span></div><h3>End of Year</h3><p>Recorded inside as written, then again outdoors at the fountain in Mazen's own words, so the team has two versions to choose from.</p></article>
+      <article class="card"><img src="img/b_medical.jpg" alt="Mazen in a tan blazer and dark sweater beside a vase of flowers"><div class="meta"><span class="tag">Room 2</span><span>Tan blazer, dark sweater</span><span>2 takes</span></div><h3>Medical Missions</h3><p>"A mother in labor in Gaza, a child in pain in Sudan, a hospital with limited resources in Kenya. What happens next?"</p></article>
+      <article class="card"><img src="img/b_mothers.jpg" alt="Mazen in a tan blazer and white shirt, hand raised"><div class="meta"><span class="tag">Room 2</span><span>Tan blazer, white shirt</span><span>2 takes</span></div><h3>Mothers &amp; Babies</h3><p>"Your mother, your mother, your mother." Opens on the hadith, then moves to the Every Pregnancy Ramadan appeal.</p></article>
+      <article class="card"><img src="img/b_name.jpg" alt="Mazen in a brown corduroy jacket, hands together"><div class="meta"><span class="tag">Room 2 + walk-and-talk</span><span>Brown corduroy</span><span>3 takes</span></div><h3>The Baitulmaal Name</h3><p>"Baitulmaal wasn't born in a corporate boardroom. It's a 1,400-year-old promise." Also recorded as a walk-and-talk outside.</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="s2">
+    <div class="sh">
+      <div class="eyebrow">B-roll · the arrival</div>
+      <h2 id="s2">Mazen walks into the building, then up to the logo</h2>
+      <p class="muted">This gives every one of the six videos an opening or a closing that moves. The sequence runs from the parking lot to the Baitulmaal wall.</p>
+    </div>
+    <div class="seq">
+      <figure><img src="img/br_arrive.jpg" alt="Mazen walking across the lot"><figcaption>Arrival</figcaption></figure>
+      <figure><img src="img/br_trees.jpg" alt="Mazen walking past the glass front under the trees"><figcaption>Glass front</figcaption></figure>
+      <figure><img src="img/br_2300.jpg" alt="Mazen entering 2300 Valley View through revolving doors"><figcaption>2300 Valley View</figcaption></figure>
+      <figure><img src="img/br_corridor.jpg" alt="Mazen walking down the office corridor toward camera"><figcaption>Corridor</figcaption></figure>
+      <figure><img src="img/br_logo_pass.jpg" alt="Mazen passing the Baitulmaal logo wall"><figcaption>Logo pass</figcaption></figure>
+      <figure><img src="img/br_logo.jpg" alt="Baitulmaal logo wall"><figcaption>Logo wall</figcaption></figure>
+    </div>
+    <div class="wide">
+      <img src="img/c_walktalk.jpg" alt="Mazen talking to camera while walking beside a stone wall outside">
+      <div class="sh"><div class="eyebrow">Look C · outside</div><h3 style="font-size:28px">Mazen outside the office, in natural light</h3><p class="muted">The walk-and-talk and the fountain take were shot on a gimbal in natural light. The movement suits vertical social, where a seated talking head gets scrolled past fastest.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s3">
+    <div class="sh">
+      <div class="eyebrow">The grade</div>
+      <h2 id="s3">Shot flat, finished rich</h2>
+      <p class="muted">Mazen was filmed in V-Log, a flat camera profile that keeps detail in bright windows and dark suits. Drag the line to compare the frame straight off the camera with the color-corrected still. Every image on this page has the same correction.</p>
+    </div>
+    <div class="compare" id="cmp" style="--x:50%">
+      <img src="img/raw_zakat.jpg" alt="Ungraded log frame of Mazen in the grey suit">
+      <img class="top" src="img/a_zakat.jpg" alt="Color-corrected frame of Mazen in the grey suit">
+      <input id="cmpRange" type="range" min="0" max="100" value="50" aria-label="Compare ungraded and graded frame">
+      <div class="bar" aria-hidden="true"></div>
+      <span class="lab l">Off camera</span><span class="lab r">Graded</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="s4">
+    <div class="sh">
+      <div class="eyebrow">How it progressed</div>
+      <h2 id="s4">April in the office, October everywhere</h2>
+      <p class="muted">Mazen has been on camera with us in Irving since December 2024, with stops in Istanbul and Beirut along the way. Here is the last office shoot next to this one.</p>
+    </div>
+    <div class="then">
+      <div>
+        <div class="eyebrow" style="color:var(--muted)">April 2026</div>
+        <div class="pair"><img src="img/apr_wall.jpg" alt="Mazen in April 2026 in front of the plaque wall"><img src="img/apr_window.jpg" alt="Mazen in April 2026 by the office window"></div>
+      </div>
+      <div>
+        <div class="eyebrow">October 2026</div>
+        <div class="grid6"><img src="img/a_orphans.jpg" alt=""><img src="img/a_zakat.jpg" alt=""><img src="img/a_endofyear.jpg" alt=""><img src="img/b_medical.jpg" alt=""><img src="img/b_mothers.jpg" alt=""><img src="img/b_name.jpg" alt=""><img src="img/c_walktalk.jpg" alt="Mazen talking while walking outside"><img src="img/br_arrive.jpg" alt="Mazen walking across the lot"><img src="img/br_trees.jpg" alt="Mazen walking past the glass front"></div>
+        <p class="muted" style="font-size:14px">Bottom row: Mazen walking and talking outside the office.</p>
+      </div>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th></th><th>April 2026</th><th>October 2026</th></tr></thead>
+        <tbody>
+          <tr><td>Scripts</td><td>2</td><td class="now">6</td></tr>
+          <tr><td>Wardrobe</td><td>1 suit</td><td class="now">6 outfits</td></tr>
+          <tr><td>Setups</td><td>2, both inside the office</td><td class="now">3: two rooms and the fountain outside</td></tr>
+          <tr><td>Movement</td><td>Standing to camera</td><td class="now">Gimbal walk-and-talk, arrival sequence from car park to logo</td></tr>
+          <tr><td>Versions</td><td>One per script</td><td class="now">Extra outdoor takes of End of Year and the name story</td></tr>
+          <tr><td>Built for</td><td>Horizontal</td><td class="now">Shot horizontal, framed for vertical cuts too</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="s5">
+    <div class="sh">
+      <div class="eyebrow">What the team has now</div>
+      <h2 id="s5">Enough Mazen for the next two campaigns</h2>
+    </div>
+    <ul class="list">
+      <li><span>Ramadan 2027 is covered from the CEO side: Zakat, Mothers &amp; Babies and Gaza Orphan Sponsorship are all recorded, with 2 to 3 takes each to pick from.</span></li>
+      <li><span>End of Year is cut, 61 seconds in 16:9, and the warmer outdoor take is there for a second version.</span></li>
+      <li><span>Medical Missions and the name story work any month of the year as evergreen pieces for new donors.</span></li>
+      <li><span>The arrival B-roll and the logo wall shots can top and tail all six, so the series looks like one family.</span></li>
+      <li><span>All raw footage is already in Baitulmaal's Air workspace, as agreed.</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>Filmed by Mostafa Taleb for Happy Productions · Panasonic, 4K 23.976 · stills graded with a Panasonic V-Log to Rec.709 correction</span>
+    <span>Scripts by the Baitulmaal communications team</span>
+  </footer>
+</div>
+<script>
+(function(){var c=document.getElementById('cmp'),r=document.getElementById('cmpRange');if(!c||!r)return;function s(){c.style.setProperty('--x',r.value+'%')}r.addEventListener('input',s);s();})();
+</script>
+</body>
+</html>
